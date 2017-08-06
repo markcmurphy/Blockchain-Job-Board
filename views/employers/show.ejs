@@ -25,6 +25,11 @@
 					<li>Name: <%=employer.name%></li>
 				</ul>
 			</section>
+      <section>
+        <form action="/employers/<%=employer.id%>?_method=DELETE" method="post">
+          <input type="submit" value="Delete Author"/>
+        </form>
+      </section>
 		</main>
 	</body>
 </html>

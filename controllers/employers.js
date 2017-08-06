@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Employer = require('../models/employers.js');
 
+router.delete('/:id', (req,res)=> {
+  Employer.findByIdAndRemove(req.params.id, ()=>{
+    res.redirect('/employers');
+  });
+});
+
 router.get('/new', (req, res) => {
   res.render('employers/new.ejs');
 });
