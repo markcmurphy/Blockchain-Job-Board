@@ -20,4 +20,12 @@ router.post('/', (req, res)=> {
   });
 });
 
+router.get('/:id', (req,res)=> {
+  Employer.findById(req.params.id, (err, foundEmployer)=> {
+    res.render('employers/show.ejs',{
+      employer:foundEmployer
+    });
+  });
+});
+
 module.exports = router;
