@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const Job = require('../models/jobs.js');
+const Employer = require('../models/employers.js');
 
 router.get('/new', (req,res)=>{
-  res.render('jobs/new.ejs');
+  Author.find({}, (err, allEmployers)=> {
+    res.render('jobs/new.ejs', {
+      employers: allEmployers
+    });
+  });
 });
 
 router.delete('/:id', (req,res)=> {
@@ -35,8 +40,13 @@ router.get('/', (req, res)=> {
 });
 
 router.post('/', (req,res)=>{
-  Job.create(req.body, (err, createdJob)=>{
-    res.redirect('/jobs');
+  Employer.findById(req.body.employerId, (err, foundEmployer)=>{
+    Job.create(req.body, (err, createdJob)=>{
+    foundEmployer.jobs.push(createdJob);
+    foundEmployer.save((err, data)=>{
+      res.redirect('/jobs');
+      });
+    });
   });
 });
 

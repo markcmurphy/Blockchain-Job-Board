@@ -20,6 +20,10 @@
 		</header>
 		<main>
 			<form action="/jobs" method="post">
+        <select name="employerId">
+          <% for(let i=0; i<employers.length; i++) { %>
+            <option value="<%=employers[i].id%>"><%=employers[i].name%</option>
+            <% } %>
 				<input type="text" name="title" /><br/>
 				<textarea name="body"></textarea><br/>
 				<input type="submit" value="Publish Job"/>
