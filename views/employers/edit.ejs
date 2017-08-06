@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Edit <%=employer.name%>'s Info</title>
+	</head>
+	<body>
+		<header>
+			<h1>Edit <%=employer.name%>'s Info</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/employers">Employers Index</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h2>employer Attributes:</h2>
+			<form action="/employers/<%=employer.id%>?_method=PUT" method="post">
+				<input type="text" name="name" value="<%=employer.name%>"/><br/>
+				<input type="submit" value="Update employer"/>
+			</form>
+		</main>
+	</body>
+</html>

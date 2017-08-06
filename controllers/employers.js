@@ -2,6 +2,20 @@ const express = require('express');
 const router = express.Router();
 const Employer = require('../models/employers.js');
 
+router.put('/:id', (req,res)=> {
+  Employer.findByIdAndUpdate(req.params.id, req.body, ()=> {
+    res.redirect('/employers');
+  });
+});
+
+router.get('/:id/edit', (req,res)=> {
+Employer.findById(req.params.id,(err, foundEmployer)=>{
+  res.render('employers/edit.ejs', {
+    employer: foundEmployer
+    });
+  });
+});
+
 router.delete('/:id', (req,res)=> {
   Employer.findByIdAndRemove(req.params.id, ()=>{
     res.redirect('/employers');
