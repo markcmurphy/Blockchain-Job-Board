@@ -7,7 +7,11 @@ router.get('/new', (req,res)=>{
 });
 
 router.get('/', (req, res)=> {
-  res.render('jobs/index.ejs')
+  Job.find({}, (err, foundJobs)=> {
+  res.render('jobs/index.ejs', {
+      jobs:foundJobs
+    });
+  })
 });
 
 router.post('/', (req,res)=>{

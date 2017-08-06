@@ -18,5 +18,15 @@
 				</ul>
 			</nav>
 		</header>
+    <main>
+      <h2>List of Jobs</h2>
+      <ul>
+        <% for (let i=0; i<jobs.length; i++){ %>
+          <li>
+            <a href="/jobs/<%=jobs[i].id%>"><%=jobs[i].title%></a>
+          <li>
+          <% } %>
+      </ul>
+    </main>
 	</body>
 </html>
