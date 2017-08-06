@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Create a Job</title>
+	</head>
+	<body>
+		<header>
+			<h1>Create a Job</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/jobs">Jobs Index</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<form action="/jobs" method="post">
+				<input type="text" name="title" /><br/>
+				<textarea name="body"></textarea><br/>
+				<input type="submit" value="Publish Job"/>
+			</form>
+		</main>
+	</body>
+</html>
