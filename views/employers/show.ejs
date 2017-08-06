@@ -25,6 +25,14 @@
 					<li>Name: <%=employer.name%></li>
 				</ul>
 			</section>
+			<section>
+				<h2>Jobs posted by this employer:</h2>
+				<ul>
+					<% for(let i=0; i < employer.jobs.length; i++) { %>
+						<li><a href="/jobs/<%=employer.jobs[i].id%>"><%=employer.jobs[i].title%></a></li>
+						<% } %>
+				</ul>
+			</section>
       <section>
         <a href="/employers/<%=employer.id%>/edit">Edit</a>
       </section>

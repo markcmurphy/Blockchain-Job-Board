@@ -4,7 +4,7 @@ const Job = require('../models/jobs.js');
 const Employer = require('../models/employers.js');
 
 router.get('/new', (req,res)=>{
-  Author.find({}, (err, allEmployers)=> {
+  Employer.find({}, (err, allEmployers)=> {
     res.render('jobs/new.ejs', {
       employers: allEmployers
     });
@@ -12,8 +12,13 @@ router.get('/new', (req,res)=>{
 });
 
 router.delete('/:id', (req,res)=> {
-  Job.findByIdAndRemove(req.params.id, ()=> {
-    res.redirect('/jobs');
+  Job.findByIdAndRemove(req.params.id, (err, foundJob)=> {
+    Employer.findOne({'jobs.id':req.params.id}, (err, foundEmployer)=> {
+      foundEmployer.jobs.id(req.params.id).remove();
+      foundEmployer.save((err, data)=> {
+        res.redirect('/jobs');
+      });
+    });
   });
 });
 
@@ -31,13 +36,6 @@ router.get('/:id/edit', (req,res)=> {
   });
 });
 
-router.get('/', (req, res)=> {
-  Job.find({}, (err, foundJobs)=> {
-  res.render('jobs/index.ejs', {
-      jobs:foundJobs
-    });
-  })
-});
 
 router.post('/', (req,res)=>{
   Employer.findById(req.body.employerId, (err, foundEmployer)=>{
@@ -51,14 +49,22 @@ router.post('/', (req,res)=>{
 });
 
 router.get('/:id', (req,res)=> {
-  Job.findById(req.params.id, (err, foundjob)=> {
+  Job.findById(req.params.id, (err, foundJob)=> {
     Employer.findOne({'jobs.id':req.params.id}, (err, foundEmployer)=> {
       res.render('jobs/show.ejs', {
         employer:foundEmployer,
         job: foundJob
       });
-    })
+    });
   });
+});
+
+router.get('/', (req, res)=> {
+  Job.find({}, (err, foundJobs)=> {
+    res.render('jobs/index.ejs', {
+      jobs:foundJobs
+    });
+  })
 });
 
 module.exports = router;
