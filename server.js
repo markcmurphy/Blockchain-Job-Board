@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 const employersController = require('./controllers/employers.js');
 app.use ('/employers', employersController);
 
+const jobsController = require('./controllers/jobs.js');
+app.use('/jobs', jobsController);
+
 app.listen(3000, () => {
   console.log('I am listening...');
 });
