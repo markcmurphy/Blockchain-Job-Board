@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+
 const employersController = require('./controllers/employers.js');
 app.use ('/employers', employersController);
 
