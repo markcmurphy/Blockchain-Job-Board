@@ -23,8 +23,14 @@ router.delete('/:id', (req,res)=> {
 });
 
 router.put('/:id', (req,res)=> {
-  Job.findByIdAndUpdate(req.params.id, req.body, ()=> {
-    res.redirect('/jobs');
+  Job.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedJob)=> {
+    Employer.findOne({'jobs.id': req.params.id}, (err, foundEmployer)=> {
+      foundEmployer.jobs.id(req.params.id).remove();
+      foundEmployer.jobs.push(updatedJob);
+      foundEmployer.save((err, data)=> {
+        res.redirect('/jobs/'+req.params.id);
+      });
+    });
   });
 });
 
