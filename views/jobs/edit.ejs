@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Edit <%=job.title%>'s Info</title>
+	</head>
+	<body>
+		<header>
+			<h1>Edit <%=job.title%>'s Info</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/jobs">Jobs Index</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h2>Job Attributes:</h2>
+			<form action="/jobs/<%=job.id%>?_method=PUT" method="post">
+				<input type="text" name="title" value="<%=job.title%>"/><br/>
+				<textarea name="body"><%=job.body%></textarea><br/>
+				<input type="submit" value="Update Job"/>
+			</form>
+		</main>
+	</body>
+</html>

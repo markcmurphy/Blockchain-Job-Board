@@ -12,6 +12,20 @@ router.delete('/:id', (req,res)=> {
   });
 });
 
+router.put('/:id', (req,res)=> {
+  Job.findByIdAndUpdate(req.params.id, req.body, ()=> {
+    res.redirect('/jobs');
+  });
+});
+
+router.get('/:id/edit', (req,res)=> {
+  Job.findById(req.params.id, (err, foundJob)=> {
+     res.render('jobs/edit.ejs', {
+       job:foundJob
+     });
+  });
+});
+
 router.get('/', (req, res)=> {
   Job.find({}, (err, foundJobs)=> {
   res.render('jobs/index.ejs', {
