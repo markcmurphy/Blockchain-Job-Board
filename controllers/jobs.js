@@ -52,9 +52,12 @@ router.post('/', (req,res)=>{
 
 router.get('/:id', (req,res)=> {
   Job.findById(req.params.id, (err, foundjob)=> {
-    res.render('jobs/show.ejs', {
-      job: foundjob
-    });
+    Employer.findOne({'jobs.id':req.params.id}, (err, foundEmployer)=> {
+      res.render('jobs/show.ejs', {
+        employer:foundEmployer,
+        job: foundJob
+      });
+    })
   });
 });
 
