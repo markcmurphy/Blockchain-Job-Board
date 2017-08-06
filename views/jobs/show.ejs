@@ -22,6 +22,11 @@
 			<section>
 				<%=job.body%>
 			</section>
+      <section>
+        <form action="/jobs/<%=job.id%>?_method=DELETE" method="post">
+          <input type="submit" value="Delete Job"/>
+        </form>
+      </section>
 		</main>
 	</body>
 </html>

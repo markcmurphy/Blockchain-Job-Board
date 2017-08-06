@@ -6,6 +6,12 @@ router.get('/new', (req,res)=>{
   res.render('jobs/new.ejs');
 });
 
+router.delete('/:id', (req,res)=> {
+  Job.findByIdAndRemove(req.params.id, ()=> {
+    res.redirect('/jobs');
+  });
+});
+
 router.get('/', (req, res)=> {
   Job.find({}, (err, foundJobs)=> {
   res.render('jobs/index.ejs', {
