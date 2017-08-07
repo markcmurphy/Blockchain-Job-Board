@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/jobboard';
+const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const session = require('express-session');
 const usersController = require('./controllers/users.js');
@@ -8,6 +10,7 @@ const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
+
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
@@ -24,7 +27,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('I am listening...');
 });
 
@@ -34,7 +37,7 @@ app.get('/', function(req, res){
     });
 });
 
-mongoose.connect('mongodb://localhost:27017/jobboard');
+mongoose.connect(mongoUri);
 
 mongoose.connection.once('open', ()=> {
   console.log('connected to Mongo');
