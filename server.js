@@ -2,11 +2,6 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
-app.use(session({
-  secret: "oldShoeFarm",
-  resave: false,
-  saveUninitialized: false
-}));
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
 const sessionsController = require('./controllers/sessions.js');
@@ -23,12 +18,20 @@ app.use ('/employers', employersController);
 const jobsController = require('./controllers/jobs.js');
 app.use('/jobs', jobsController);
 
+app.use(session({
+  secret: "oldShoeFarm",
+  resave: false,
+  saveUninitialized: false
+}));
+
 app.listen(3000, () => {
   console.log('I am listening...');
 });
 
-app.get ('/', (req, res)=> {
-  res.render('index.ejs');
+app.get('/', function(req, res){
+    res.render('index.ejs', {
+        currentUser: req.session.currentuser
+    });
 });
 
 mongoose.connect('mongodb://localhost:27017/jobboard');
