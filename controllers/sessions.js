@@ -6,10 +6,11 @@ router.get('/new', (req, res) => {
     res.render('sessions/new.ejs');
 });
 
-router.post('/', function(req, res){
-    User.findOne({ username: req.body.username }, (err, foundUser) => {
+router.post('/', (req, res) => {
+    User.findOne({ username: req.body.username }, function(err, foundUser){
         if(req.body.password == foundUser.password){
-            res.send('logged in');
+            req.session.currentuser = foundUser;
+            res.redirect('/');
         } else {
             res.send('wrong password');
         }

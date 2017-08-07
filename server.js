@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
 app.use(session({
-  secret: "old shoe farm",
+  secret: "oldShoeFarm",
   resave: false,
   saveUninitialized: false
 }));
