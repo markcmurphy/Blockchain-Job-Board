@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Edit <%=job.title%>'s Info</title>
+		<title>Edit Info</title>
 	</head>
 	<body>
 		<header>
@@ -20,7 +20,18 @@
 		</header>
 		<main>
 			<h2>Job Attributes:</h2>
-			<form action="/jobs/<%=job.id%>?_method=PUT" method="post">
+			<form action="/jobs/<%=job._id %>?_method=PUT" method="post">
+        <select name="employerId">
+          <% for(let i=0; i< employers.length; i++) { %>
+            <option value="<%=employers[i]._id%>"
+            <% if(employers[i]._id.toString() === jobEmployer._id.toString()) { %>
+                selected
+              <% } %>
+              >
+            <%=employers[i].name%>
+            </option>
+            <% } %>
+            </select><br/>
 				<input type="text" name="title" value="<%=job.title%>"/><br/>
 				<textarea name="body"><%=job.body%></textarea><br/>
 				<input type="submit" value="Update Job"/>
