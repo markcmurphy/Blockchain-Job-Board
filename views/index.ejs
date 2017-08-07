@@ -7,22 +7,15 @@
 </head>
 
 <body>
-  <h1>Blockchain Jobs</h1>
-  <h1>
-    <% if(currentUser) { %>
-        Welcome <%=currentUser.username%>!
-    <% } else { %>
-        Welcome!
-    <% } %>
-</h1>
+  <header>
 
-<section>
-  <% if(currentUser) { %>
-    <main>
-            Welcome to the <a href="/app">party</a>
-    </main>
-<% } %>
-</section>
+  <h1>Blockchain Jobs</h1>
+<nav>
+  <ul>
+    <li><a href="/employers">Employers</li>
+    <li><a href="/jobs">Jobs</li>
+  </ul>
+</nav>
 
   <nav>
     <ul>
@@ -30,6 +23,7 @@
       <li><a href="/sessions/register">Register</a></li>
     </ul>
   </nav>
+
   <div>
     <% if(currentUser) { %>
       <li>
@@ -39,6 +33,8 @@
       </li>
       <% } %>
   </div>
+</header>
+
 </body>
 
 </html>
