@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <h1>Blockchain Jobs</h1>
-				<h1>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <h1>Blockchain Jobs</h1>
+  <h1>
     <% if(currentUser) { %>
         Welcome <%=currentUser.username%>!
     <% } else { %>
         Welcome!
     <% } %>
 </h1>
-        <nav>
-            <ul>
-                <li><a href="/sessions/new">Log In</a></li>
-                <li><a href="/users/new">Register</a></li>
-            </ul>
-        </nav>
-				<div>
-					<% if(currentUser) { %>
-    <li>
-        <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Logout"/>
-        </form>
-    </li>
+
+<section>
+  <% if(currentUser) { %>
+    <main>
+            Welcome to the <a href="/app">party</a>
+    </main>
 <% } %>
-				</div>
-    </body>
+</section>
+
+  <nav>
+    <ul>
+      <li><a href="/sessions/login">Log In</a></li>
+      <li><a href="/sessions/register">Register</a></li>
+    </ul>
+  </nav>
+  <div>
+    <% if(currentUser) { %>
+      <li>
+        <form action="/sessions?_method=DELETE" method="POST">
+          <input type="submit" value="Logout" />
+        </form>
+      </li>
+      <% } %>
+  </div>
+</body>
+
 </html>
