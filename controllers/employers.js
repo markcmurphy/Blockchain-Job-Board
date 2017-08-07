@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Employer = require('../models/employers.js');
+const Job = require('../models/jobs.js');
 
 router.put('/:id', (req,res)=> {
   Employer.findByIdAndUpdate(req.params.id, req.body, ()=> {
@@ -17,8 +18,21 @@ Employer.findById(req.params.id,(err, foundEmployer)=>{
 });
 
 router.delete('/:id', (req,res)=> {
-  Employer.findByIdAndRemove(req.params.id, ()=>{
-    res.redirect('/employers');
+  Employer.findByIdAndRemove(req.params.id, (err, foundEmployer)=>{
+    const jobIds = [];
+    for (let i=0; i<foundEmployer.jobs.length; i++) {
+      jobIds.push(foundEmployer.jobs[i]._id);
+    }
+    Job.remove(
+      {
+          _id: {
+            $in: jobIds
+          }
+      },
+      (err, data)=> {
+        res.redirect('/employers');
+      }
+    );
   });
 });
 
@@ -34,11 +48,20 @@ router.get('/', (req, res)=> {
   })
 });
 
+router.post('/login', (req, res) => {
+  req.session.username = req.body.username;
+  req.session.logged   = true;
+  console.log(req.session);
+  res.redirect('/employers')
+});
+
 router.post('/', (req, res)=> {
   Employer.create(req.body, (err, createdEmployer)=>{
     res.redirect('/employers');
   });
 });
+
+
 
 router.get('/:id', (req,res)=> {
   Employer.findById(req.params.id, (err, foundEmployer)=> {

@@ -1,6 +1,16 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const session = require('express-session');
+app.use(session({
+  secret: "old shoe farm",
+  resave: false,
+  saveUninitialized: false
+}));
+const usersController = require('./controllers/users.js');
+app.use('/users', usersController);
+const sessionsController = require('./controllers/sessions.js');
+app.use('/sessions', sessionsController);
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
