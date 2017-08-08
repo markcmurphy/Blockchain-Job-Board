@@ -6,21 +6,21 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
-const cheerio = require('cheerio');
-const request = require('request');
-request('http://careerportal.thetechtank.com/#/jobs/289', function(err, res, body){
-  console.log(err);
-  if(!err && res.statusCode === 200){
-    console.log('worked');
-    var $ = cheerio.load(body);
-    $('.card-title ng-binding').each(function(){
-        console.log($(this).text());
-        console.log($(this).attr('href'));
-        console.log("----------");
-      });
-    }
-  }
-);
+// const cheerio = require('cheerio');
+// const request = require('request');
+// request('http://careerportal.thetechtank.com/#/jobs/289', function(err, res, body){
+//   console.log(err);
+//   if(!err && res.statusCode === 200){
+//     console.log('worked');
+//     var $ = cheerio.load(body);
+//     $('.card-title ng-binding').each(function(){
+//         console.log($(this).text());
+//         console.log($(this).attr('href'));
+//         console.log("----------");
+//       });
+//     }
+//   }
+// );
 
 const session = require('express-session');
 app.use(session({
@@ -36,9 +36,6 @@ app.use('/users', usersController);
 
 const sessionsController = require('./controllers/session.js');
 app.use('/sessions', sessionsController);
-
-
-
 
 const employersController = require('./controllers/employers.js');
 app.use ('/employers', employersController);

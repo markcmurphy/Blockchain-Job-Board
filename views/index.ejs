@@ -16,19 +16,20 @@
   </ul>
 </nav>
 
-  <nav>
-    <ul>
-      <li><a href="/sessions/login">Log In</a></li>
-      <li><a href="/sessions/register">Register</a></li>
-    </ul>
-  </nav>
-
-  <div>
-    <% if(currentUser) { %>
-      <li><a href="/sessions/logout">Log Out</a></li>
-
+<nav>
+  <ul>
+      <% if(currentUser) { %>
+    <li><a href="/sessions/logout">Log Out</a></li>
       <% } %>
-  </div>
+      <% if(!currentUser) { %>
+    <li><a href="/sessions/login">Log In</a></li>
+      <% } %>
+      <% if(!currentUser) { %>
+    <li><a href="/sessions/register">Register</a></li>
+      <% } %>
+  </ul>
+</nav>
+
 </header>
 <h1>
     <% if(currentUser) { %>
