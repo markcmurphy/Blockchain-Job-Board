@@ -23,6 +23,7 @@ router.post('/login', (req, res) => {
             req.session.currentuser = user;
             req.session.logged = true;
             console.log(req.session.currentuser);
+            console.log(req.session.logged);
             res.redirect('/')
         } else {
           console.log('incorrect!');
@@ -31,6 +32,7 @@ router.post('/login', (req, res) => {
         }
     } else {
           console.log('incorrect?');
+          console.log(req.session.logged);
           req.session.message = 'username or password are incorrect';
           res.redirect('/sessions/login')
     }

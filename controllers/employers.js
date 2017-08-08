@@ -9,12 +9,17 @@ router.put('/:id', (req,res)=> {
   });
 });
 
+
 router.get('/:id/edit', (req,res)=> {
+  if(req.session.logged){
 Employer.findById(req.params.id,(err, foundEmployer)=>{
   res.render('employers/edit.ejs', {
     employer: foundEmployer
-    });
-  });
+  })
+})
+} else {
+    res.redirect('/');
+  }
 });
 
 router.delete('/:id', (req,res)=> {

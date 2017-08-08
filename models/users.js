@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Job = require('./jobs.js');
 
 const userSchema = Schema({
     username: String,

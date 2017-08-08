@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
+const cheerio = require('cheerio');
+const request = require('request');
+
 const session = require('express-session');
 app.use(session({
   secret: "oldShoeFarm",
