@@ -26,7 +26,7 @@ router.post('/login', (req, res) => {
             req.session.logged = true;
             console.log(req.session.currentuser);
             console.log(req.session.logged);
-            req.flash('success', 'express-flash module.');
+            req.flash('success', 'You are logged in!');
             res.redirect('/')
         } else {
           console.log('incorrect!');
