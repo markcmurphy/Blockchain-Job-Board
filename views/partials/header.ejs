@@ -1,0 +1,28 @@
+<header>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+  <a class="navbar-brand" href="/">Blockchain Jobs</a>
+</div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+<ul id="nav-mobile" class="nav navbar-nav">
+  <li><a href="/employers">Employers</li>
+  <li><a href="/jobs">Jobs</li>
+    <% if(currentUser) { %>
+  <li><a href="/sessions/logout">Log Out</a></li>
+    <% } %>
+    <% if(!currentUser) { %>
+  <li><a href="/sessions/login">Log In</a></li>
+    <% } %>
+    <% if(!currentUser) { %>
+  <li><a href="/sessions/register">Register</a></li>
+    <% } %>
+</ul>
+
+</div>
+</div>
+</nav>
+</header>
