@@ -6,15 +6,21 @@ const flash = require('express-flash');
 
 
 router.get('/login', (req, res) => {
-  res.render('users/login.ejs', {message: req.session.message || ''});
+  res.render('users/login.ejs', {
+    currentUser: req.session.currentuser,
+    message: req.session.message || ''});
 });
 
 router.get('/register', (req, res) => {
-  res.render('users/register.ejs', {})
+  res.render('users/register.ejs', {
+    currentUser: req.session.currentuser
+  });
 })
 
 router.get('/new', (req, res) => {
-    res.render('sessions/new.ejs');
+    res.render('sessions/new.ejs',
+  {currentUser: req.session.currentuser
+  });
 });
 
 router.post('/login', (req, res) => {

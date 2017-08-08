@@ -4,9 +4,16 @@
     <% include ../partials/head.ejs %>
 </head>
 	<body>
-		<header>
+      <header>
+
+      <% include ../partials/header.ejs %>
+
+		</header>
+    <main>
+
+
 			<h1>Employers</h1>
-			<nav>
+
 				<ul>
 					<li>
 						<a href="/">Home</a>
@@ -15,9 +22,6 @@
 						<a href="/employers/new">Create a new Employer</a>
 					</li>
 				</ul>
-			</nav>
-		</header>
-    <main>
       <h2>List of Employers</h2>
       <ul>
         <% for(let i=0; i<employers.length; i++){ %>

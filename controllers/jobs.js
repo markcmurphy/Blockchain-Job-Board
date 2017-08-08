@@ -6,6 +6,7 @@ const Employer = require('../models/employers.js');
 router.get('/', (req, res)=> {
   Job.find({}, (err, foundJobs)=> {
     res.render('jobs/index.ejs', {
+      currentUser: req.session.currentuser,
       jobs:foundJobs
     });
   })
@@ -14,6 +15,7 @@ router.get('/', (req, res)=> {
 router.get('/new', (req,res)=>{
   Employer.find({}, (err, allEmployers)=> {
     res.render('jobs/new.ejs', {
+      currentUser: req.session.currentuser,
       employers: allEmployers
     });
   });
@@ -34,6 +36,7 @@ router.get('/:id', (req, res)=> {
   Job.findById(req.params.id, (err, foundJob)=> {
     Employer.findOne({'jobs._id':req.params.id}, (err, foundEmployer)=> {
       res.render('jobs/show.ejs', {
+        currentUser: req.session.currentuser,
         employer: foundEmployer,
         job: foundJob
       });
@@ -57,6 +60,7 @@ router.get('/:id/edit', (req,res)=> {
     Employer.find({}, (err, allEmployers)=>{
       Employer.findOne({'jobs._id':req.params.id}, (err, foundJobEmployer)=>{
         res.render('jobs/edit.ejs', {
+          currentUser: req.session.currentuser,
           job:foundJob,
           employers: allEmployers,
           jobEmployer: foundJobEmployer

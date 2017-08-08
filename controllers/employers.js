@@ -42,12 +42,15 @@ router.delete('/:id', (req,res)=> {
 });
 
 router.get('/new', (req, res) => {
-  res.render('employers/new.ejs');
+  res.render('employers/new.ejs', {
+    currentUser: req.session.currentuser
+  });
 });
 
 router.get('/', (req, res)=> {
   Employer.find({}, (err, foundEmployers)=> {
-    res.render('employers/index.ejs', {
+      res.render('employers/index.ejs', {
+      currentUser: req.session.currentuser,
       employers:foundEmployers
     });
   })
@@ -71,6 +74,7 @@ router.post('/', (req, res)=> {
 router.get('/:id', (req,res)=> {
   Employer.findById(req.params.id, (err, foundEmployer)=> {
     res.render('employers/show.ejs',{
+      currentUser: req.session.currentuser,
       employer:foundEmployer
     });
   });
