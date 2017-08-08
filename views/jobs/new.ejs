@@ -5,19 +5,20 @@
 </head>
 	<body>
 		<header>
-			<h1>Create a Job</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/jobs">Jobs Index</a>
-					</li>
-				</ul>
-			</nav>
+      <% include ../partials/header.ejs %>
 		</header>
 		<main>
+      <h1>Create a Job</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/jobs">Jobs Index</a>
+          </li>
+        </ul>
+      </nav>
 			<form action="/jobs" method="post">
         <select name="employerId">
           <% for(let i=0; i<employers.length; i++) { %>

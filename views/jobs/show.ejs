@@ -5,20 +5,21 @@
 </head>
 	<body>
 		<header>
-			<h1><%=job.title%></h1>
-      <small>posted by: <a href="/employers/<%=employer.id%>"><%=employer.name%></a></small>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/jobs">Jobs Index</a>
-					</li>
-				</ul>
-			</nav>
+      <% include ../partials/header.ejs %>
 		</header>
 		<main>
+      <h1><%=job.title%></h1>
+      <small>posted by: <a href="/employers/<%=employer.id%>"><%=employer.name%></a></small>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/jobs">Jobs Index</a>
+          </li>
+        </ul>
+      </nav>
 			<section>
 				<%=job.body%>
 			</section>

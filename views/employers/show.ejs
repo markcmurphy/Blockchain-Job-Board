@@ -5,19 +5,19 @@
 </head>
 	<body>
 		<header>
-			<h1>Show Page for <%=employer.name%></h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/employers">Employer Index</a>
-					</li>
-				</ul>
-			</nav>
+      <% include ../partials/header.ejs %>
 		</header>
 		<main>
+      <h1>Show Page for <%=employer.name%></h1>
+
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/employers">Employer Index</a>
+          </li>
+        </ul>
 			<section>
 				<h2>Employer Attributes:</h2>
 				<ul>

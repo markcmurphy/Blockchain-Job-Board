@@ -4,6 +4,9 @@
     <% include ../partials/head.ejs %>
 </head>
     <body>
+      <header>
+        <% include ../partials/header.ejs %>
+      </header>
         <h1>Create User</h1>
         <form action="/sessions/register" method="POST">
            <input type="text" name="username" placeholder="username">

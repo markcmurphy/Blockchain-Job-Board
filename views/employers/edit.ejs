@@ -5,19 +5,18 @@
 </head>
 	<body>
 		<header>
-			<h1>Edit <%=employer.name%>'s Info</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/employers">Employers Index</a>
-					</li>
-				</ul>
-			</nav>
+      <% include ../partials/header.ejs %>
 		</header>
 		<main>
+      <h1>Edit <%=employer.name%>'s Info</h1>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/employers">Employers Index</a>
+        </li>
+      </ul>
 			<h2>employer Attributes:</h2>
 			<form action="/employers/<%=employer.id%>?_method=PUT" method="post">
 				<input type="text" name="name" value="<%=employer.name%>"/><br/>

@@ -5,19 +5,20 @@
 </head>
 	<body>
 		<header>
-			<h1>Jobs</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/jobs/new">Create a new Job</a>
-					</li>
-				</ul>
-			</nav>
+      <% include ../partials/header.ejs %>
 		</header>
     <main>
+      <h1>Jobs</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/jobs/new">Create a new Job</a>
+          </li>
+        </ul>
+      </nav>
       <h2>List of Jobs</h2>
       <ul>
         <% for (let i=0; i<jobs.length; i++){ %>

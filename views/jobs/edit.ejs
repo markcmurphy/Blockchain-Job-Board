@@ -5,19 +5,20 @@
 </head>
 	<body>
 		<header>
-			<h1>Edit <%=job.title%>'s Info</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/jobs">Jobs Index</a>
-					</li>
-				</ul>
-			</nav>
+      <% include ../partials/header.ejs %>
 		</header>
 		<main>
+      <h1>Edit <%=job.title%>'s Info</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/jobs">Jobs Index</a>
+          </li>
+        </ul>
+      </nav>
 			<h2>Job Attributes:</h2>
 			<form action="/jobs/<%=job._id %>?_method=PUT" method="post">
         <select name="employerId">
