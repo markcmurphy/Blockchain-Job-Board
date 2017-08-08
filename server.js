@@ -22,6 +22,8 @@ app.use(methodOverride('_method'));
 //   }
 // );
 
+app.use(express.static('public'));
+
 const session = require('express-session');
 app.use(session({
   secret: "oldShoeFarm",
