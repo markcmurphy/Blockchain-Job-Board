@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users.js');
 const bcrypt  = require('bcrypt');
+const flash = require('express-flash');
+
 
 router.get('/login', (req, res) => {
   res.render('users/login.ejs', {message: req.session.message || ''});
@@ -24,6 +26,7 @@ router.post('/login', (req, res) => {
             req.session.logged = true;
             console.log(req.session.currentuser);
             console.log(req.session.logged);
+            req.flash('success', 'express-flash module.');
             res.redirect('/')
         } else {
           console.log('incorrect!');

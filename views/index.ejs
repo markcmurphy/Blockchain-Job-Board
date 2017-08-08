@@ -34,6 +34,11 @@
   </nav>
 </header>
 
+<% if ( messages.success ) { %>
+<p><strong>FLASH!</strong> <%= messages.success %></p>
+<% } %>
+
+
 <h1>
     <% if(currentUser) { %>
         Welcome <%=currentUser.username%>!
