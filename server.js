@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const flash = require('express-flash');
 app.use(methodOverride('_method'));
+const Job = require('./models/jobs.js');
+const GeoJSON = require('geojson');
+
 
 
 // const cheerio = require('cheerio');
@@ -25,7 +28,7 @@ app.use(methodOverride('_method'));
 // );
 
 app.use(express.static('public'));
-
+app.locals.GeoJSON = GeoJSON;
 const session = require('express-session');
 app.use(session({
   secret: "oldShoeFarm",
@@ -56,11 +59,28 @@ app.use(function(req, res, next){
 });
 
 app.get('/', (req, res) => {
-  res.render('index.ejs',{currentUser: req.session.currentuser
-    });
+  Job.find({}, 'lat lng -_id', function(err, foundJob) {
+   const jobcoords = [];
+    for (let i=0; i< foundJob.length; i++) {
+    jobcoords.push(foundJob[i]);
+    }
+    res.render('index.ejs', {
+    currentUser: req.session.currentuser,
+    jobcoords: jobcoords
 });
+})
+})
 
 
+
+
+// jobs.forEach(function(user) {
+//   jobslist[Job.coordinates] = jobs;
+// });
+//
+// res.send(jobslist);
+// });
+// });
 
 // app.all('/', function(req, res){
 //   req.flash('test', 'it worked');

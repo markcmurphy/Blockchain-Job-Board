@@ -23,8 +23,11 @@
 			<section>
 				<%=job.body%>
 			</section>
+
+      <% if(currentUser) { %>
       <section>
         <a href="/jobs/<%=job.id%>/edit">Edit</a>
+        <% } %>
       </section>
       <section>
         <form action="/jobs/<%=job.id%>?_method=DELETE" method="post">
