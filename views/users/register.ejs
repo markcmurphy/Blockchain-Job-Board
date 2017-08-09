@@ -7,12 +7,14 @@
       <header>
         <% include ../partials/header.ejs %>
       </header>
-        <h1>Create User</h1>
-        <form action="/sessions/register" method="POST">
-           <input type="text" name="username" placeholder="username">
-           <input type="password" name="password" placeholder="password">
-            <input type="submit" value="Create User">
+      <div class="signin-form">
+        <form class="form-signin" action="/sessions/register" method="POST">
+          <h2 "form-signin-heading">Create User</h2>
+           <input class="form-control" type="text" name="username" placeholder="username">
+           <input class="form-control" type="password" name="password" placeholder="password">
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Create User">
         </form>
+      </div>
     </body>
     <%# scripts%>
     <% include ../partials/scripts.ejs %>

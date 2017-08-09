@@ -12,7 +12,7 @@ router.get('/', (req, res)=> {
     res.render('jobs/index.ejs', {
       currentUser: req.session.currentuser,
       jobs:foundJobs
-    });
+    });  
   })
 });
 

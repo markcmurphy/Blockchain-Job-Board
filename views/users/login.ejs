@@ -4,14 +4,16 @@
 <header>
   <% include ../partials/header.ejs %>
 </header>
+<div class="signin-form">
 
-<h1>Login Below</h1>
-<form action="/sessions/login" method="POST">
-   <input type="text" name="username" placeholder="username">
-   <input type="password" name="password" placeholder="password">
-   <button>Login</button>
+<form class="form-signin" action="/sessions/login" method="POST">
+  <h2 class="form-signin-heading">Login Below</h1>
+   <input class="form-control" type="text" name="username" placeholder="username">
+   <input class="form-control" type="password" name="password" placeholder="password">
+   <button class="btn btn-lg btn-primary btn-block">Login</button>
 </form>
 
+</div>
 <%# scripts%>
 <% include ../partials/scripts.ejs %>
 <%# scripts%>
