@@ -18,7 +18,26 @@
   <strong>Nice! </strong><%= messages.success %>
 </div>
 <% } %>
-<section>
+
+<section class="hero">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1>
+            <% if(currentUser) { %>
+                Welcome <%=currentUser.username%>!
+            <% } else { %>
+                Welcome!
+            <% } %>
+        </h1>
+        <p>Bringing you the best in blockchain jobs</p>
+        <p><a href="/jobs" class="btn btn-primary btn-large">View Jobs Now »</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# <section>
 
   <div id="map"></div>
   <script>
@@ -82,16 +101,7 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZntmPlFLucB__BpSBZkGF4h6cZso7JOs&callback=initMap">
   </script>
 
-</section>
-
-
-<h1>
-    <% if(currentUser) { %>
-        Welcome <%=currentUser.username%>!
-    <% } else { %>
-        Welcome!
-    <% } %>
-</h1>
+</section>%>
 
 <% include ./partials/scripts.ejs %>
 </body>
