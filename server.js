@@ -70,6 +70,7 @@ app.get('/', (req, res) => {
     }
     res.render('index.ejs', {
     currentUser: req.session.currentuser,
+    jobs:jobsController,
     jobcoords: jobcoords
 });
 })
