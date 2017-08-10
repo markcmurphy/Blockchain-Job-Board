@@ -7,7 +7,7 @@
 		<header>
       <% include ../partials/header.ejs %>
 		</header>
-    <main>
+    <main class='content'>
       <h1>Jobs</h1>
       <nav>
 					</li>
@@ -17,18 +17,22 @@
           <li role="presentation" class="active">
           <a href="/">Home</a>
           <li class="active">
-          <li>
           <a href="/jobs">Jobs</a>
+          </li>
 
             <%# <a href="/jobs/new">Create a new Job</a>%>
-          </li>
         </ul>
       </nav>
       <h2>Newest Jobs</h2>
-      <ul>
+      <ul class="media-list">
         <% for (let i=0; i<jobs.length; i++){  %>
-          <li>%>
+          <li class="media">
+          <div class="media-body well">
+          <h4 class="media-heading">
             <a href="/jobs/<%=jobs[i].id%>"><%=jobs[i].title%></a>
+            </h4>
+            <div class="blurb"><%=jobs[i].body%></div>
+          </div>
           </li>
           <% } %>
       </ul>

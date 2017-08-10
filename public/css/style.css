@@ -145,3 +145,8 @@ text-align: center;
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.blurb {
+  max-height: 80px;
+  overflow: hidden;
+}

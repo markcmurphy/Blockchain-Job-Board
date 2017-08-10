@@ -8,6 +8,7 @@ const flash = require('express-flash');
 app.use(methodOverride('_method'));
 const Job = require('./models/jobs.js');
 const GeoJSON = require('geojson');
+const ellipsize = require('ellipsize');
 
 
 
@@ -28,7 +29,10 @@ const GeoJSON = require('geojson');
 // );
 
 app.use(express.static('public'));
+
 app.locals.GeoJSON = GeoJSON;
+app.locals.ellipsize = ellipsize;
+
 const session = require('express-session');
 app.use(session({
   secret: "oldShoeFarm",

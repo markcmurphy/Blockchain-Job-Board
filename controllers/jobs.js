@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Job = require('../models/jobs.js');
 const Employer = require('../models/employers.js');
-const googleMapsClient = require('@google/maps').createClient({
-  key: 'AIzaSyBZntmPlFLucB__BpSBZkGF4h6cZso7JOs'
-});
+
 
 
 router.get('/', (req, res)=> {
@@ -12,7 +10,7 @@ router.get('/', (req, res)=> {
     res.render('jobs/index.ejs', {
       currentUser: req.session.currentuser,
       jobs:foundJobs
-    });  
+    });
   })
 });
 
@@ -42,8 +40,7 @@ router.get('/:id', (req, res)=> {
       res.render('jobs/show.ejs', {
         currentUser: req.session.currentuser,
         employer: foundEmployer,
-        job: foundJob,
-        googleMapsClient:googleMapsClient
+        job: foundJob
       });
     })
   });
