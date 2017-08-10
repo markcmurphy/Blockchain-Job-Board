@@ -3,24 +3,18 @@
 <head>
     <% include ../partials/head.ejs %>
 </head>
-	<body>
+<body>
+
 		<header>
       <% include ../partials/header.ejs %>
 		</header>
 		<main>
+      </div>
+      <div class="jumbotron job-show">
       <h1><%=job.title%></h1>
-      <small>posted by: <a href="/employers/<%=employer.id%>"><%=employer.name%></a></small>
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/jobs">Jobs Index</a>
-          </li>
-        </ul>
-      </nav>
-			<section>
+      <h3>posted by: <a href="/employers/<%=employer.id%>"><%=employer.name%></a></h3>
+    </div>
+			<section class="well">
 				<%=job.body%>
 			</section>
 
@@ -29,6 +23,17 @@
         <a href="/jobs/<%=job.id%>/edit">Edit</a>
         <% } %>
       </section>
+
+      <nav>
+        <ul>
+          <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/jobs">Back to Jobs Index</a>
+        </li>
+      </ul>
+    </nav>
       <section>
         <form action="/jobs/<%=job.id%>?_method=DELETE" method="post">
           <input type="submit" value="Delete Job"/>

@@ -9,24 +9,34 @@
       <% include ../partials/header.ejs %>
 
 		</header>
-    <main>
+    <main class="content">
 
 
 			<h1>Employers</h1>
 
-				<ul>
-					<li>
+				<ul class="breadcrumb">
+					<li role="presentation" class="active">
 						<a href="/">Home</a>
 					</li>
-					<li>
-						<a href="/employers/new">Create a new Employer</a>
+					<li class="active">
+						<a href="/employers">Employers</a>
 					</li>
+					<%# <li role="presentation">
+						<a href="/employers/new">Create a new Employer</a>
+					</li>%>
 				</ul>
-      <h2>List of Employers</h2>
-      <ul>
+      <%# <h2>List of Employers</h2>%>
+      <ul class="media-list">
         <% for(let i=0; i<employers.length; i++){ %>
-          <li>
-              <a href="/employers/<%=employers[i].id%>"><%=employers[i].name%></a>
+          <li class="media">
+            <div class="media-left">
+            <img class="media-object" src="<%=employers[i].logo%>">
+            </div>
+            <div class="media-body well">
+              <h4 class="media-heading">
+            <a href="/employers/<%=employers[i].id%>"><%=employers[i].name%></a></h4>
+            <%=employers[i].desc%>
+            </div>
           </li>
         <% } %>
       </ul>

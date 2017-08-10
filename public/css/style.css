@@ -17,10 +17,10 @@ footer {
   border-top: 1px solid #e5e5e5;
 }
 
-.jumbotron-before {
+.hero-before {
   position:absolute;
-  padding-left: 15px;
-  padding-right: 15px;
+  /*padding-left: 15px;*/
+  /*padding-right: 15px;*/
   width: 100%;
   height: 400px;
   background: url('http://i.imgur.com/JO1X8eY.jpg');
@@ -31,7 +31,7 @@ footer {
   filter: alpha(opacity=50);
 }
 
-.jumbotron {
+.hero {
   padding-left: 15px;
   padding-right: 15px;
   height:400px;
@@ -39,12 +39,12 @@ footer {
   color: white;
  }
 
- .jumbotron h1 {
+ .hero h1 {
    color:white;
    text-shadow:2px 2px #333;
  }
 
- .jumbotron .row {
+ .hero .row {
    margin-left: 10%;
    margin-top: 5%;
  }
@@ -61,8 +61,8 @@ footer {
 .main .container {
   display: inline-flex;
   flex-wrap: wrap;
-  background-color: #42a5f5;
-  width: 100%;
+  /*background-color: #42a5f5;*/
+  width: auto;
   flex-direction: row;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -120,4 +120,28 @@ text-align: center;
 .form-control {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.job-show {
+  padding-right: 30px;
+  padding-left: 30px;
+  width: auto;
+  text-align: center;
+}
+
+.job-show h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-left: 45px;
+}
+
+.media img {
+  height: 80px;
+  width: auto;
+}
+
+.content {
+  padding-left: 20px;
+  padding-right: 20px;
 }

@@ -8,20 +8,22 @@
       <% include ../partials/header.ejs %>
 		</header>
 		<main>
-        <h1>Create an Employer</h1>
         <nav>
           <ul>
             <li>
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/employers">Employers Index</a>
+              <a href="/employers">Back to Employers Index</a>
             </li>
           </ul>
         </nav>
-			<form action="/employers" method="POST">
-				<input type="text" name="name" />
-				<input type="submit" value="Create employer">
+			<form class="form-signin signin-form" action="/employers" method="POST">
+        <h2 class="form-signin-heading">Create New Employer</h2>
+				<input class="form-control" type="text" name="name" placeholder="Company Name"/>
+				<input class="form-control" type="text" name="desc" placeholder="Company Desc"/>
+				<input class="form-control" type="text" name="logo" placeholder="Link to company logo"/>
+				<input class="btn btn-lg btn-primary btn-block" type="submit" value="Create Employer" />
 			</form>
 		</main>
     <%# scripts%>
