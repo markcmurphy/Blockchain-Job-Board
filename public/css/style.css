@@ -102,8 +102,8 @@ text-align: center;
 }
 
 .container img {
-  height:75px;
-  width: 100px;
+  height: 95px;
+  width: auto;
   margin: 5px;
 }
 
