@@ -7,16 +7,18 @@
     <header>
       <% include ../partials/header.ejs %>
 		</header>
-		<main>
+		<main class="content">
         <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/employers">Back to Employers Index</a>
-            </li>
-          </ul>
+          <ul class="breadcrumb">
+          <li>
+          <a href="/">Home</a>
+          <li>
+          <a href="/employers">Employers</a>
+          </li>
+          <li class="active">
+          <a href="/employers/new">Create New Employer</a>
+          </li>
+        </ul>
         </nav>
 			<form class="form-signin signin-form" action="/employers" method="POST">
         <h2 class="form-signin-heading">Create New Employer</h2>

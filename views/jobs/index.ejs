@@ -27,7 +27,6 @@
           <li class="active">
           <a href="/jobs">Jobs</a>
           </li>
-
         </ul>
       </nav>
       <h2>Newest Jobs</h2>
@@ -43,9 +42,9 @@
           </li>
           <% } %>
       </ul>
-
+<% if(currentUser) { %>
       <a href="/jobs/new">Create a new Job</a>
-
+<% } %>
     </main>
     <%# scripts%>
     <% include ../partials/scripts.ejs %>
