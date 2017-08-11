@@ -124,8 +124,8 @@
 
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 3,
-      center: {lat: -28.024, lng: 140.887}
+      zoom: 5,
+      center: {lat: 30.307182, lng: -97.755996}
     });
 
     // Create an array of alphabetical characters used to label the markers.
@@ -152,8 +152,7 @@
     {lat: <%=jobcoords[i].lat%>, lng: <%=jobcoords[i].lng%>}, <%} else { %>
       {lat: <%=jobcoords[i].lat%>, lng: <%=jobcoords[i].lng%> }
       <%}%>
-      <%}%>   
-
+      <%}%>
     ]
 
 </script>
