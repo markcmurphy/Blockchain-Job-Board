@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const Job = require('./jobs.js');
 
 const userSchema = Schema({
+    name: String,
     username: String,
     password: String
 });

@@ -37,11 +37,13 @@
         </li>
       </ul>
     </nav>
+    <% if(currentUser) { %>
       <section>
         <form action="/jobs/<%=job.id%>?_method=DELETE" method="post">
           <input type="submit" value="Delete Job"/>
         </form>
       </section>
+      <% } %>
 		</main>
     <%# scripts%>
     <% include ../partials/scripts.ejs %>

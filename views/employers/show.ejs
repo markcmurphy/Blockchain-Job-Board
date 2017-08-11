@@ -8,30 +8,37 @@
       <% include ../partials/header.ejs %>
 		</header>
 		<main class="content">
-      <h1>Show Page for <%=employer.name%></h1>
-
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/employers">Employer Index</a>
-          </li>
-        </ul>
-			<section>
-				<h2>Employer Attributes:</h2>
-				<ul>
-					<li>Name: <%=employer.name%></li>
-				</ul>
-			</section>
+      <ul class="breadcrumb">
+        <li role="presentation" >
+          <a href="/">Home</a>
+        </li>
+        <li >
+          <a href="/employers">Employers</a>
+        </li>
+        <li class="active">
+          <a href="/employers/<%=employer.id%>"><%=employer.name%></a>
+        </li>
+      <div class="jumbotron job-show">
+        <section class="well">
+        <h1> <%=employer.name%></h1>
+          <img src="<%=employer.logo%>"></br>
+          <h4><%=employer.desc%></h4>
+          </section>
+</div>
 			<section>
 				<h2>Jobs posted by this employer:</h2>
-				<ul>
+				<ul class="media-list">
 					<% for(let i=0; i < employer.jobs.length; i++) { %>
-						<li><a href="/jobs/<%=employer.jobs[i].id%>"><%=employer.jobs[i].title%></a></li>
+						<li class="media">
+            <div class="media-body well">
+            <a href="/jobs/<%=employer.jobs[i].id%>"><%=employer.jobs[i].title%></a>
+            </div>
+            </li>
+
 						<% } %>
 				</ul>
 			</section>
+      <% if(currentUser) { %>
       <section>
         <a href="/employers/<%=employer.id%>/edit">Edit</a>
       </section>
@@ -40,6 +47,7 @@
           <input type="submit" value="Delete Employer"/>
         </form>
       </section>
+      <% } %>
 		</main>
     <%# scripts%>
     <% include ../partials/scripts.ejs %>

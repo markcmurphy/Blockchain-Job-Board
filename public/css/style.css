@@ -186,3 +186,10 @@ margin-right: auto;
   width: auto;
   /*margin-left: 20px;*/
 }
+
+.job-show img{
+  height: 85px;
+  width: auto;
+  border: 1px solid grey;
+  margin-bottom: 15px;
+}

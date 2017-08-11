@@ -21,9 +21,7 @@
 					<li class="active">
 						<a href="/employers">Employers</a>
 					</li>
-					<%# <li role="presentation">
-						<a href="/employers/new">Create a new Employer</a>
-					</li>%>
+
 				</ul>
       <%# <h2>List of Employers</h2>%>
       <ul class="media-list">
@@ -40,6 +38,9 @@
           </li>
         <% } %>
       </ul>
+<% if(currentUser) { %>
+        <a href="/employers/new">Create a new Employer</a>
+<% } %>
     </main>
     <%# scripts%>
     <% include ../partials/scripts.ejs %>
