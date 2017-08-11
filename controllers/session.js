@@ -36,12 +36,14 @@ router.post('/login', (req, res) => {
             res.redirect('/')
         } else {
           console.log('incorrect!');
+          req.flash('fail', 'User or password are incorrect!');
           req.session.message = 'username or password are incorrect';
           res.redirect('/sessions/login')
         }
     } else {
           console.log('incorrect?');
           console.log(req.session.logged);
+          req.flash('fail', 'User or password are incorrect!');
           req.session.message = 'username or password are incorrect';
           res.redirect('/sessions/login')
     }

@@ -10,8 +10,6 @@ const Job = require('./models/jobs.js');
 const GeoJSON = require('geojson');
 const ellipsize = require('ellipsize');
 
-
-
 // const cheerio = require('cheerio');
 // const request = require('request');
 // request('http://careerportal.thetechtank.com/#/jobs/289', function(err, res, body){
@@ -62,9 +60,9 @@ app.use(function(req, res, next){
     next();
 });
 
+const jobcoords = [];
 app.get('/', (req, res) => {
   Job.find({}, 'lat lng -_id', function(err, foundJob) {
-   const jobcoords = [];
     for (let i=0; i< foundJob.length; i++) {
     jobcoords.push(foundJob[i]);
     }
