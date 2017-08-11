@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Job = require('../models/jobs.js');
 const Employer = require('../models/employers.js');
+const flash = require('express-flash');
+
 
 
 
@@ -28,6 +30,7 @@ router.post('/', (req,res)=>{
     Job.create(req.body, (err, createdJob)=>{
       foundEmployer.jobs.push(createdJob);
       foundEmployer.save((err, data)=>{
+        req.flash('success', 'Job Successfully posted!');
         res.redirect('/jobs');
       });
     });

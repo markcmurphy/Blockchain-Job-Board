@@ -119,18 +119,14 @@
 
 <div id="map"></div>
 <script>
-
+<%console.log(jobcoords);%>
   function initMap() {
-
-
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 5,
       center: {lat: 30.307182, lng: -97.755996}
     });
-
     // Create an array of alphabetical characters used to label the markers.
     var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
     // Add some markers to the map.
     // Note: The code uses the JavaScript Array.prototype.map() method to
     // create an array of markers based on a given "locations" array.
@@ -141,7 +137,6 @@
         label: labels[i % labels.length]
       });
     });
-
     // Add a marker clusterer to manage the markers.
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
@@ -154,7 +149,6 @@
       <%}%>
       <%}%>
     ]
-
 </script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
 </script>

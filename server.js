@@ -60,9 +60,10 @@ app.use(function(req, res, next){
     next();
 });
 
-const jobcoords = [];
+
 app.get('/', (req, res) => {
   Job.find({}, 'lat lng -_id', function(err, foundJob) {
+    const jobcoords = [];
     for (let i=0; i< foundJob.length; i++) {
     jobcoords.push(foundJob[i]);
     }
